@@ -1,99 +1,76 @@
-/* Simplified light-blue theme — keep it simple */
+/* Very simple light-blue flight-themed stylesheet */
 
 :root{
   --bg: #e6f7ff;
   --fg: #042a3a;
-  --muted: rgba(4,42,58,0.65);
-  --outline: rgba(4,42,58,0.28);
-  --radius: 10px;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --outline: rgba(4,42,58,0.25);
+  --radius: 8px;
+  --gap: 1rem;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
 }
 
 *{box-sizing:border-box}
 html,body{height:100%;margin:0}
 body{
-  background: var(--bg);
-  color: var(--fg);
-  padding: 0 1rem;
+  background:var(--bg);
+  color:var(--fg);
+  padding:0 1rem;
   -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
 }
 
 /* layout */
 .container{max-width:1100px;margin:0 auto}
 header{display:flex;justify-content:space-between;align-items:center;padding:1rem 0}
-.brand{display:flex;align-items:center;gap:.6rem;font-weight:700;text-decoration:none;color:inherit}
-.brand .logo{width:48px;height:32px;border-radius:8px;background:linear-gradient(135deg,#d6f0ff,#9fdcff);border:1px solid var(--outline)}
+.brand{display:flex;align-items:center;gap:.5rem;font-weight:700}
+.brand .logo{width:44px;height:28px;border-radius:6px;background:linear-gradient(135deg,#d6f0ff,#9fdcff);border:1px solid var(--outline)}
 
 /* nav */
-nav{display:flex;gap:.6rem}
-nav a{color:var(--fg);text-decoration:none;padding:.35rem .6rem;border-radius:8px}
-nav a.cta{border:1px solid var(--outline);padding:.45rem .8rem}
+nav{display:flex;gap:.5rem}
+nav a{color:var(--fg);text-decoration:none;padding:.35rem .6rem;border-radius:6px}
+nav a.cta{border:1px solid var(--outline);padding:.4rem .7rem}
 
 /* hero */
-.hero{display:grid;gap:1rem;padding:2rem 0;grid-template-columns:1fr}
+.hero{display:grid;gap:var(--gap);padding:1.5rem 0;grid-template-columns:1fr}
 @media(min-width:900px){.hero{grid-template-columns:1fr 380px}}
-.hero-card{padding:1.5rem;border-radius:var(--radius);border:1px solid var(--outline);background:transparent}
+.hero-card{padding:1rem;border-radius:var(--radius);border:1px solid var(--outline);background:transparent}
 
-/* typography */
-h1{margin:.25rem 0;font-size:clamp(1.6rem,3vw,2.2rem)}
-p.lead{color:var(--muted);margin:.5rem 0}
+/* type */
+h1{margin:.25rem 0;font-size:clamp(1.4rem,2.8vw,2rem)}
+p.lead{color:rgba(4,42,58,0.7);margin:.4rem 0}
 
 /* buttons */
 .cta-row{display:flex;gap:.6rem;flex-wrap:wrap}
-.btn{padding:.6rem 1rem;border-radius:10px;border:1px solid var(--outline);background:transparent;color:var(--fg);font-weight:700;cursor:pointer}
+.btn{padding:.5rem .9rem;border-radius:8px;border:1px solid var(--outline);background:transparent;color:var(--fg);font-weight:700;cursor:pointer}
 .btn-primary{background:rgba(4,42,58,0.06)}
 
-/* features / panels / plans */
-.features{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.75rem}
-.feature{padding:.4rem .7rem;border-radius:999px;border:1px solid var(--outline);font-weight:700;color:var(--fg)}
-.panel, .plan, .course-card{padding:.8rem;border-radius:8px;border:1px solid var(--outline);background:transparent;color:var(--fg)}
+/* panels */
+.panel, .plan, .course-card{padding:.75rem;border-radius:8px;border:1px solid var(--outline);background:transparent;color:var(--fg)}
 
-/* images & form */
+/* features */
+.features{display:flex;gap:.5rem;flex-wrap:wrap}
+.feature{padding:.3rem .6rem;border-radius:999px;border:1px solid var(--outline);font-weight:700}
+
+/* images: small square thumbnails */
 img.responsive{
-  width:100%;
-  height:200px;        /* fixed display height for consistent cards */
-  object-fit:cover;    /* crop to fill without distortion */
+  width:96px;
+  height:96px;
+  object-fit:cover;
   display:block;
-  border-radius:8px;
+  border-radius:6px;
   border:1px solid var(--outline);
+  margin:0 auto;
 }
 
-/* images & form: smaller square thumbnails */
-img.responsive{
-  width:140px;          /* fixed square width */
-  height:140px;         /* fixed square height */
-  object-fit:cover;     /* crop to fill without distortion */
-  display:block;
-  border-radius:8px;
-  border:1px solid var(--outline);
-  margin:0 auto;        /* center inside cards */
-}
-
-/* smaller screens use shorter heights */
-@media(max-width:900px){
-  img.responsive{ height:160px; }
-}
-@media(max-width:480px){
-  img.responsive{ height:120px; }
-}
-
-/* smaller screens use smaller squares */
-@media(max-width:900px){
+/* responsive image sizes */
+@media(min-width:900px){
   img.responsive{ width:120px; height:120px; }
 }
 @media(max-width:480px){
-  img.responsive{ width:96px; height:96px; }
+  img.responsive{ width:80px; height:80px; }
 }
 
 /* footer */
-footer{margin-top:2rem;padding:1rem 0;color:var(--muted);text-align:center;border-top:1px solid var(--outline)}
+footer{margin-top:2rem;padding:1rem 0;color:rgba(4,42,58,0.65);text-align:center;border-top:1px solid var(--outline)}
 
-/* accessibility */
+/* focus */
 :focus{outline:3px solid var(--fg);outline-offset:3px}
-
-/* small screens */
-@media(max-width:640px){
-  .brand .logo{width:40px;height:26px}
-  .hero{padding:1rem 0}
-}
