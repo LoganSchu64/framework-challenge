@@ -1,11 +1,12 @@
-/* Simple, consistent light-blue stylesheet (fresh start) */
+/* Clean, simple, polished light-blue stylesheet */
 
 :root{
-  --bg: #e6f7ff;
-  --fg: #042a3a;
-  --muted: rgba(4,42,58,0.6);
-  --outline: rgba(4,42,58,0.25);
-  --radius: 8px;
+  --bg: #e9f8ff;
+  --fg: #063544;
+  --muted: rgba(6,53,68,0.6);
+  --outline: rgba(6,53,68,0.24);
+  --card-bg: #ffffff;
+  --radius: 10px;
   --gap: 1rem;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
 }
@@ -13,41 +14,53 @@
 *{box-sizing:border-box}
 html,body{height:100%;margin:0}
 body{
-  background:var(--bg);
+  background: linear-gradient(180deg, var(--bg), #dff6ff);
   color:var(--fg);
   padding:0 1rem;
   -webkit-font-smoothing:antialiased;
+  line-height:1.4;
 }
 
-/* container and header */
+/* Layout */
 .container{max-width:1100px;margin:0 auto}
 header{display:flex;justify-content:space-between;align-items:center;padding:1rem 0}
-.brand{display:flex;align-items:center;gap:.5rem;font-weight:700;text-decoration:none;color:inherit}
-.brand .logo{width:44px;height:28px;border-radius:6px;background:linear-gradient(135deg,#d6f0ff,#9fdcff);border:1px solid var(--outline)}
+.brand{display:flex;align-items:center;gap:.6rem;font-weight:700;text-decoration:none;color:inherit}
+.brand .logo{
+  width:48px;height:32px;border-radius:8px;
+  background:linear-gradient(135deg,#d6f0ff,#9fdcff);
+  border:1px solid var(--outline);
+  box-shadow:0 6px 18px rgba(6,53,68,0.06);
+}
 
-/* navigation */
+/* Nav */
 nav{display:flex;gap:.6rem}
-nav a{color:var(--fg);text-decoration:none;padding:.35rem .6rem;border-radius:6px}
-nav a.cta{border:1px solid var(--outline);padding:.4rem .7rem}
+nav a{color:var(--fg);text-decoration:none;padding:.35rem .6rem;border-radius:8px}
+nav a.cta{border:1px solid var(--outline);padding:.4rem .7rem;background:rgba(6,53,68,0.04)}
 
-/* hero */
+/* Hero */
 .hero{display:grid;gap:var(--gap);padding:1.5rem 0;grid-template-columns:1fr}
-@media(min-width:900px){.hero{grid-template-columns:1fr 380px}}
-.hero-card{padding:1rem;border-radius:var(--radius);border:1px solid var(--outline);background:transparent}
+@media(min-width:900px){.hero{grid-template-columns:1fr 420px}}
+.hero-card{
+  padding:1.25rem;border-radius:var(--radius);
+  background:var(--card-bg);border:1px solid var(--outline);
+  box-shadow:0 12px 30px rgba(6,53,68,0.06);
+}
 
-/* typography */
-h1{margin:.25rem 0;font-size:clamp(1.4rem,2.8vw,2rem)}
-p.lead{color:var(--muted);margin:.4rem 0}
+/* Headings */
+h1{margin:.25rem 0;font-size:clamp(1.4rem,2.8vw,2.2rem);color:var(--fg)}
+p.lead{color:var(--muted);margin:.5rem 0}
 
-/* buttons */
+/* Buttons */
 .cta-row{display:flex;gap:.6rem;flex-wrap:wrap}
-.btn{padding:.5rem .9rem;border-radius:8px;border:1px solid var(--outline);background:transparent;color:var(--fg);font-weight:700;cursor:pointer}
-.btn-primary{background:rgba(4,42,58,0.06)}
+.btn{padding:.6rem 1rem;border-radius:8px;border:1px solid var(--outline);background:transparent;color:var(--fg);font-weight:700;cursor:pointer}
+.btn-primary{background:var(--fg);color:white;border-color:transparent}
 
-/* generic panels */
-.panel, .plan{padding:.75rem;border-radius:8px;border:1px solid var(--outline);background:transparent;color:var(--fg)}
+/* Panels & Plans */
+.panel, .plan{padding:.9rem;border-radius:8px;border:1px solid var(--outline);background:var(--card-bg)}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:.9rem}
+@media(max-width:900px){.plans{grid-template-columns:1fr}}
 
-/* courses: square cards with centered square thumbnails */
+/* Courses grid: square cards */
 .courses-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
@@ -55,49 +68,43 @@ p.lead{color:var(--muted);margin:.4rem 0}
   margin-top:.75rem;
   align-items:stretch;
 }
+
+/* Square card that fully contains the image */
 .course-card{
-  position:relative;
-  overflow:hidden;
-  padding:0; /* let the image occupy the card */
+  aspect-ratio:1/1;
   border-radius:8px;
+  overflow:hidden;
   border:1px solid var(--outline);
-  background:transparent;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:.5rem;
-  padding:.6rem;
-  margin:0;
-  z-index:1;
+  background:var(--card-bg);
+  display:block;
+  position:relative;
 }
-.course-card img,
-img.responsive{
+
+/* Image fills the card entirely */
+.course-card img{
+  position:absolute;
+  inset:0;
   width:100%;
   height:100%;
-  object-fit:cover;   /* crop to fill box */
+  object-fit:cover;
   display:block;
-  border-radius:0;    /* card already has radius */
-  border:0;
-  margin:0;
-  padding:0;
-}
-@media(min-width:900px){
-  .course-card img, img.responsive{ width:84px; height:84px; }
-}
-@media(max-width:480px){
-  .course-card img, img.responsive{ width:56px; height:56px; }
 }
 
-/* if there are captions inside the card, place them over the image */
-.course-card > *:not(img){
-  position:relative;
-  z-index:2;
+/* Optional caption overlay at bottom */
+.course-card .caption{
+  position:absolute;
+  left:0;right:0;bottom:0;
+  background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(4,26,34,0.55) 100%);
+  color:white;
   padding:.5rem;
+  font-size:. ninepx;
   text-align:center;
-  color:var(--fg);
-  background: rgba(255,255,255,0.0); /* transparent by default */
+  box-sizing:border-box;
 }
 
-/* footer and focus */
+/* Responsive image sizes handled by aspect-ratio; keep simple */
+img.responsive{display:block;max-width:100%;height:auto;border-radius:6px;border:1px solid var(--outline)}
+
+/* Footer & focus */
 footer{margin-top:2rem;padding:1rem 0;color:var(--muted);text-align:center;border-top:1px solid var(--outline)}
-:focus{outline:3px solid var(--fg);outline-offset:3px}
+:focus{outline:3px solid rgba(4,26,34,0.12);outline-offset:3px}
