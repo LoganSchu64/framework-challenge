@@ -74,3 +74,57 @@ footer{margin-top:2rem;padding:1rem 0;color:rgba(4,42,58,0.65);text-align:center
 
 /* focus */
 :focus{outline:3px solid var(--fg);outline-offset:3px}
+
+/* make course highlight cards square */
+.courses-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap:0.75rem;
+  margin-top:.75rem;
+  align-items:stretch;
+}
+
+.course-card{
+  position:relative;
+  aspect-ratio: 1 / 1;           /* enforces a square */
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:.6rem;
+  border-radius:8px;
+  border:1px solid var(--outline);
+  background:transparent;
+  color:var(--fg);
+  overflow:hidden;
+  text-align:center;
+}
+
+/* thumbnail inside a square card — centered and scaled */
+.course-card img{
+  width:64%;
+  height:64%;
+  object-fit:cover;
+  border-radius:6px;
+  border:1px solid var(--outline);
+  display:block;
+  margin-bottom:.5rem;
+}
+
+/* small caption styles */
+.course-card h3,
+.course-card p{
+  margin:0;
+  font-size:.9rem;
+  color:var(--fg);
+}
+
+/* responsive tweaks */
+@media(min-width:900px){
+  .courses-grid{ grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+  .course-card img{ width:70%; height:70%; }
+}
+@media(max-width:480px){
+  .courses-grid{ grid-template-columns: repeat(auto-fit, minmax(96px, 1fr)); }
+  .course-card img{ width:68%; height:68%; }
+}
