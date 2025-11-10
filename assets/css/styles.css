@@ -1,8 +1,9 @@
-/* Very simple light-blue flight-themed stylesheet */
+/* Simple, consistent light-blue stylesheet (fresh start) */
 
 :root{
   --bg: #e6f7ff;
   --fg: #042a3a;
+  --muted: rgba(4,42,58,0.6);
   --outline: rgba(4,42,58,0.25);
   --radius: 8px;
   --gap: 1rem;
@@ -18,14 +19,14 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 
-/* layout */
+/* container and header */
 .container{max-width:1100px;margin:0 auto}
 header{display:flex;justify-content:space-between;align-items:center;padding:1rem 0}
-.brand{display:flex;align-items:center;gap:.5rem;font-weight:700}
+.brand{display:flex;align-items:center;gap:.5rem;font-weight:700;text-decoration:none;color:inherit}
 .brand .logo{width:44px;height:28px;border-radius:6px;background:linear-gradient(135deg,#d6f0ff,#9fdcff);border:1px solid var(--outline)}
 
-/* nav */
-nav{display:flex;gap:.5rem}
+/* navigation */
+nav{display:flex;gap:.6rem}
 nav a{color:var(--fg);text-decoration:none;padding:.35rem .6rem;border-radius:6px}
 nav a.cta{border:1px solid var(--outline);padding:.4rem .7rem}
 
@@ -34,97 +35,57 @@ nav a.cta{border:1px solid var(--outline);padding:.4rem .7rem}
 @media(min-width:900px){.hero{grid-template-columns:1fr 380px}}
 .hero-card{padding:1rem;border-radius:var(--radius);border:1px solid var(--outline);background:transparent}
 
-/* type */
+/* typography */
 h1{margin:.25rem 0;font-size:clamp(1.4rem,2.8vw,2rem)}
-p.lead{color:rgba(4,42,58,0.7);margin:.4rem 0}
+p.lead{color:var(--muted);margin:.4rem 0}
 
 /* buttons */
 .cta-row{display:flex;gap:.6rem;flex-wrap:wrap}
 .btn{padding:.5rem .9rem;border-radius:8px;border:1px solid var(--outline);background:transparent;color:var(--fg);font-weight:700;cursor:pointer}
 .btn-primary{background:rgba(4,42,58,0.06)}
 
-/* panels */
-.panel, .plan, .course-card{padding:.75rem;border-radius:8px;border:1px solid var(--outline);background:transparent;color:var(--fg)}
+/* generic panels */
+.panel, .plan{padding:.75rem;border-radius:8px;border:1px solid var(--outline);background:transparent;color:var(--fg)}
 
-/* features */
-.features{display:flex;gap:.5rem;flex-wrap:wrap}
-.feature{padding:.3rem .6rem;border-radius:999px;border:1px solid var(--outline);font-weight:700}
-
-/* images: small square thumbnails */
-img.responsive{
-  width:96px;
-  height:96px;
-  object-fit:cover;
-  display:block;
-  border-radius:6px;
-  border:1px solid var(--outline);
-  margin:0 auto;
-}
-
-/* responsive image sizes */
-@media(min-width:900px){
-  img.responsive{ width:120px; height:120px; }
-}
-@media(max-width:480px){
-  img.responsive{ width:80px; height:80px; }
-}
-
-/* footer */
-footer{margin-top:2rem;padding:1rem 0;color:rgba(4,42,58,0.65);text-align:center;border-top:1px solid var(--outline)}
-
-/* focus */
-:focus{outline:3px solid var(--fg);outline-offset:3px}
-
-/* make course highlight cards square */
+/* courses: square cards with centered square thumbnails */
 .courses-grid{
   display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap:0.75rem;
+  grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+  gap:.75rem;
   margin-top:.75rem;
   align-items:stretch;
 }
-
 .course-card{
-  position:relative;
-  aspect-ratio: 1 / 1;           /* enforces a square */
+  aspect-ratio:1/1;            /* enforce square card */
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
+  gap:.5rem;
   padding:.6rem;
   border-radius:8px;
   border:1px solid var(--outline);
   background:transparent;
-  color:var(--fg);
-  overflow:hidden;
   text-align:center;
+  overflow:hidden;
 }
-
-/* thumbnail inside a square card — centered and scaled */
-.course-card img{
-  width:64%;
-  height:64%;
+.course-card img,
+img.responsive{
+  width:64px;                  /* small square thumbnail */
+  height:64px;
   object-fit:cover;
   border-radius:6px;
   border:1px solid var(--outline);
   display:block;
-  margin-bottom:.5rem;
+  margin:0 auto;
 }
-
-/* small caption styles */
-.course-card h3,
-.course-card p{
-  margin:0;
-  font-size:.9rem;
-  color:var(--fg);
-}
-
-/* responsive tweaks */
 @media(min-width:900px){
-  .courses-grid{ grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
-  .course-card img{ width:70%; height:70%; }
+  .course-card img, img.responsive{ width:84px; height:84px; }
 }
 @media(max-width:480px){
-  .courses-grid{ grid-template-columns: repeat(auto-fit, minmax(96px, 1fr)); }
-  .course-card img{ width:68%; height:68%; }
+  .course-card img, img.responsive{ width:56px; height:56px; }
 }
+
+/* footer and focus */
+footer{margin-top:2rem;padding:1rem 0;color:var(--muted);text-align:center;border-top:1px solid var(--outline)}
+:focus{outline:3px solid var(--fg);outline-offset:3px}
