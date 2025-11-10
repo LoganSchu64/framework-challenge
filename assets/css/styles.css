@@ -56,34 +56,46 @@ p.lead{color:var(--muted);margin:.4rem 0}
   align-items:stretch;
 }
 .course-card{
-  aspect-ratio:1/1;            /* enforce square card */
+  position:relative;
+  overflow:hidden;
+  padding:0; /* let the image occupy the card */
+  border-radius:8px;
+  border:1px solid var(--outline);
+  background:transparent;
   display:flex;
-  flex-direction:column;
   align-items:center;
   justify-content:center;
   gap:.5rem;
   padding:.6rem;
-  border-radius:8px;
-  border:1px solid var(--outline);
-  background:transparent;
-  text-align:center;
-  overflow:hidden;
+  margin:0;
+  z-index:1;
 }
 .course-card img,
 img.responsive{
-  width:64px;                  /* small square thumbnail */
-  height:64px;
-  object-fit:cover;
-  border-radius:6px;
-  border:1px solid var(--outline);
+  width:100%;
+  height:100%;
+  object-fit:cover;   /* crop to fill box */
   display:block;
-  margin:0 auto;
+  border-radius:0;    /* card already has radius */
+  border:0;
+  margin:0;
+  padding:0;
 }
 @media(min-width:900px){
   .course-card img, img.responsive{ width:84px; height:84px; }
 }
 @media(max-width:480px){
   .course-card img, img.responsive{ width:56px; height:56px; }
+}
+
+/* if there are captions inside the card, place them over the image */
+.course-card > *:not(img){
+  position:relative;
+  z-index:2;
+  padding:.5rem;
+  text-align:center;
+  color:var(--fg);
+  background: rgba(255,255,255,0.0); /* transparent by default */
 }
 
 /* footer and focus */
