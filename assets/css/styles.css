@@ -59,12 +59,31 @@ img.responsive{
   border:1px solid var(--outline);
 }
 
+/* images & form: smaller square thumbnails */
+img.responsive{
+  width:140px;          /* fixed square width */
+  height:140px;         /* fixed square height */
+  object-fit:cover;     /* crop to fill without distortion */
+  display:block;
+  border-radius:8px;
+  border:1px solid var(--outline);
+  margin:0 auto;        /* center inside cards */
+}
+
 /* smaller screens use shorter heights */
 @media(max-width:900px){
   img.responsive{ height:160px; }
 }
 @media(max-width:480px){
   img.responsive{ height:120px; }
+}
+
+/* smaller screens use smaller squares */
+@media(max-width:900px){
+  img.responsive{ width:120px; height:120px; }
+}
+@media(max-width:480px){
+  img.responsive{ width:96px; height:96px; }
 }
 
 /* footer */
