@@ -1,4 +1,4 @@
-/* Clean, simple, polished light-blue stylesheet */
+
 
 :root{
   --bg: #e9f8ff;
@@ -21,7 +21,7 @@ body{
   line-height:1.4;
 }
 
-/* Layout */
+
 .container{max-width:1100px;margin:0 auto}
 header{display:flex;justify-content:space-between;align-items:center;padding:1rem 0}
 .brand{display:flex;align-items:center;gap:.6rem;font-weight:700;text-decoration:none;color:inherit}
@@ -32,12 +32,12 @@ header{display:flex;justify-content:space-between;align-items:center;padding:1re
   box-shadow:0 6px 18px rgba(6,53,68,0.06);
 }
 
-/* Nav */
+
 nav{display:flex;gap:.6rem}
 nav a{color:var(--fg);text-decoration:none;padding:.35rem .6rem;border-radius:8px}
 nav a.cta{border:1px solid var(--outline);padding:.4rem .7rem;background:rgba(6,53,68,0.04)}
 
-/* Hero */
+
 .hero{display:grid;gap:var(--gap);padding:1.5rem 0;grid-template-columns:1fr}
 @media(min-width:900px){.hero{grid-template-columns:1fr 420px}}
 .hero-card{
@@ -46,21 +46,21 @@ nav a.cta{border:1px solid var(--outline);padding:.4rem .7rem;background:rgba(6,
   box-shadow:0 12px 30px rgba(6,53,68,0.06);
 }
 
-/* Headings */
+
 h1{margin:.25rem 0;font-size:clamp(1.4rem,2.8vw,2.2rem);color:var(--fg)}
 p.lead{color:var(--muted);margin:.5rem 0}
 
-/* Buttons */
+
 .cta-row{display:flex;gap:.6rem;flex-wrap:wrap}
 .btn{padding:.6rem 1rem;border-radius:8px;border:1px solid var(--outline);background:transparent;color:var(--fg);font-weight:700;cursor:pointer}
 .btn-primary{background:var(--fg);color:white;border-color:transparent}
 
-/* Panels & Plans */
+
 .panel, .plan{padding:.9rem;border-radius:8px;border:1px solid var(--outline);background:var(--card-bg)}
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:.9rem}
 @media(max-width:900px){.plans{grid-template-columns:1fr}}
 
-/* Courses grid: square cards */
+
 .courses-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
@@ -69,7 +69,7 @@ p.lead{color:var(--muted);margin:.5rem 0}
   align-items:stretch;
 }
 
-/* Square card that fully contains the image */
+
 .course-card{
   aspect-ratio:1/1;
   border-radius:8px;
@@ -80,7 +80,6 @@ p.lead{color:var(--muted);margin:.5rem 0}
   position:relative;
 }
 
-/* Image fills the card entirely */
 .course-card img{
   position:absolute;
   inset:0;
@@ -90,7 +89,6 @@ p.lead{color:var(--muted);margin:.5rem 0}
   display:block;
 }
 
-/* Optional caption overlay at bottom */
 .course-card .caption{
   position:absolute;
   left:0;right:0;bottom:0;
@@ -102,9 +100,7 @@ p.lead{color:var(--muted);margin:.5rem 0}
   box-sizing:border-box;
 }
 
-/* Responsive image sizes handled by aspect-ratio; keep simple */
 img.responsive{display:block;max-width:100%;height:auto;border-radius:6px;border:1px solid var(--outline)}
 
-/* Footer & focus */
 footer{margin-top:2rem;padding:1rem 0;color:var(--muted);text-align:center;border-top:1px solid var(--outline)}
 :focus{outline:3px solid rgba(4,26,34,0.12);outline-offset:3px}
