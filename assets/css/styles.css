@@ -1,9 +1,9 @@
-/* Monochrome single-color theme */
+/* Monochrome single-color theme — lighter blue */
 
 :root{
-  --mono: #0b3a66; /* single page color */
-  --text: #ffffff;
-  --muted: rgba(255,255,255,0.85);
+  --mono: #e6f7ff; /* lighter blue background */
+  --text: #042a3a; /* dark blue text for contrast */
+  --muted: rgba(4,42,58,0.72);
   --radius: 12px;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
@@ -28,13 +28,13 @@ header{
 }
 .brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:inherit;font-weight:700}
 .brand .logo{
-  width:48px;height:32px;border-radius:8px;background:var(--mono);box-shadow:none;border:1px solid rgba(255,255,255,0.06);
+  width:48px;height:32px;border-radius:8px;background:linear-gradient(135deg,#d6f0ff,#9fdcff);box-shadow:none;border:1px solid rgba(4,42,58,0.06);
 }
 
 /* nav */
 nav{display:flex;gap:.6rem;align-items:center}
 nav a{color:var(--text);text-decoration:none;font-weight:700;padding:.35rem .6rem;border-radius:8px;background:transparent}
-nav a.cta{background:transparent;color:var(--text);padding:.45rem .8rem;border:1px solid rgba(255,255,255,0.08)}
+nav a.cta{background:transparent;color:var(--text);padding:.45rem .8rem;border:1px solid rgba(4,42,58,0.08)}
 
 /* hero */
 .hero{display:grid;grid-template-columns:1fr;gap:1rem;align-items:center;padding:2rem 0}
@@ -52,23 +52,23 @@ p.lead{color:var(--muted);margin:.5rem 0 1rem}
 
 /* buttons */
 .cta-row{display:flex;gap:.6rem;flex-wrap:wrap}
-.btn{padding:.6rem 1rem;border-radius:10px;border:1px solid rgba(255,255,255,0.08);font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:.5rem;background:transparent;color:var(--text)}
-.btn-primary{background:transparent;color:var(--text)}
+.btn{padding:.6rem 1rem;border-radius:10px;border:1px solid rgba(4,42,58,0.08);font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:.5rem;background:transparent;color:var(--text)}
+.btn-primary{background:rgba(4,42,58,0.06);color:var(--text)}
 .btn-ghost{background:transparent;color:var(--text)}
 
 /* pills / features */
 .features{display:flex;gap:.5rem;margin-top:.9rem;flex-wrap:wrap}
-.feature{background:transparent;padding:.4rem .7rem;border-radius:999px;color:var(--text);font-weight:700;font-size:.9rem;border:1px solid rgba(255,255,255,0.06)}
+.feature{background:transparent;padding:.4rem .7rem;border-radius:999px;color:var(--text);font-weight:700;font-size:.9rem;border:1px solid rgba(4,42,58,0.06)}
 
 /* panels and plans */
 .panel{background:transparent;padding:1rem;border-radius:10px;border:none;color:var(--text)}
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:1rem}
 @media(max-width:900px){.plans{grid-template-columns:1fr}}
-.plan{padding:.8rem;border-radius:10px;background:transparent;text-align:center;color:var(--text);border:1px solid rgba(255,255,255,0.04)}
+.plan{padding:.8rem;border-radius:10px;background:transparent;text-align:center;color:var(--text);border:1px solid rgba(4,42,58,0.04)}
 
 /* images and form */
-img.responsive{width:100%;height:auto;border-radius:8px;display:block;opacity:0.95;filter:grayscale(1) brightness(.9)}
-input[type="email"]{width:100%;padding:.6rem;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:transparent;color:var(--text)}
+img.responsive{width:100%;height:auto;border-radius:8px;display:block;opacity:0.95;filter:none}
+input[type="email"]{width:100%;padding:.6rem;border-radius:8px;border:1px solid rgba(4,42,58,0.08);background:transparent;color:var(--text)}
 
 /* footer */
 footer{margin-top:2rem;padding:1rem 0;color:var(--muted);text-align:center;background:transparent}
